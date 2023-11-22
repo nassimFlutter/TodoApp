@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:storgesql/constant.dart';
@@ -8,7 +9,13 @@ import 'package:storgesql/views/note_view.dart';
 
 void main() async {
   await Hive.initFlutter();
+  if (kDebugMode) {
+    print("Hive init");
+  }
   await Hive.openBox(kNotesBox);
+  if (kDebugMode) {
+    print("knotes opened");
+  }
   runApp(const MyApp());
 }
 
