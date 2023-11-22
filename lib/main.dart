@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:storgesql/constant.dart';
 import 'package:storgesql/screens/archived_task_screen.dart';
 import 'package:storgesql/screens/done_task_screen.dart';
 import 'package:storgesql/screens/new_task_screen.dart';
 import 'package:storgesql/views/note_view.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox(kNotesBox);
   runApp(const MyApp());
 }
 
