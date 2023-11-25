@@ -5,10 +5,12 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:storgesql/constant.dart';
 import 'package:storgesql/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:storgesql/model/note_model.dart';
+import 'package:storgesql/simple_bloc_observer.dart';
 
 import 'package:storgesql/views/note_view.dart';
 
 void main() async {
+  Bloc.observer = SimpleBlocObserver();
   await Hive.initFlutter();
   if (kDebugMode) {
     print("Hive init");
